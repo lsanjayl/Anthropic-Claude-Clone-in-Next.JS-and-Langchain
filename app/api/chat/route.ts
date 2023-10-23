@@ -69,6 +69,7 @@ export async function POST(req: Request, res: Response) {
           queryName: "match_documents",
         }
       );
+      console.log(vectorStore);
       // 10. Perform similarity search using vector store
       const vectorResultsArr = await vectorStore.similaritySearch(latestMessage, 3);
       const vectorResultsStr: string = vectorResultsArr.map((result) => result.pageContent).join('\n');
